@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cumbre Crypto Global</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0da6f2",
+                        "accent-purple": "#6b21a8",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0a0a0a",
+                        "card-dark": "rgba(16, 29, 35, 0.7)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-border {
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(10, 10, 10, 1), rgba(10, 10, 10, 1)), linear-gradient(to right, #0da6f2, #6b21a8);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(13, 166, 242, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Map dark mode styling */
+        .map-dark { position: relative; }
+        .map-dark iframe { filter: brightness(0.55) contrast(0.9) saturate(0.8); transition: filter 200ms ease; }
+        .map-dark::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.18); pointer-events: none; border-radius: inherit; }
+        /* Hero background tweaks: subtle opacity, downward blur/fade and better text contrast */
+        .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; filter: brightness(0.70) saturate(0.9); }
+        .hero-bg::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; border-radius: inherit;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 18%, rgba(0,0,0,0.25) 45%, rgba(10,10,10,0.65) 100%);
+            backdrop-filter: blur(0px);
+        }
+        .hero-content { position: relative; z-index: 10; }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="text-primary">
+                    <span class="material-symbols-outlined text-4xl">hub</span>
+                </div>
+                <h1
+                    class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
+                    CUMBRE CRYPTO</h1>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest"
+                    href="#agenda">Agenda</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest"
+                    href="#speakers">Ponentes</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest"
+                    href="#venue">Lugar</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest"
+                    href="#registration">Registro</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all glow-cyan uppercase tracking-tighter"
+                    href="#registration">
+                    Regístrate
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-background-dark/60 to-background-dark">
+            </div>
+            <div class="absolute inset-0 bg-[url('assets/img/logos/banner1.jpg')] bg-cover bg-center hero-bg"
+                data-alt="Banner Cumbre Crypto"></div>
+            <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" id="grad1" r="50%">
+                        <stop offset="0%" style="stop-color:#0da6f2;stop-opacity:0.2"></stop>
+                        <stop offset="100%" style="stop-color:#0da6f2;stop-opacity:0"></stop>
+                    </radialGradient>
+                </defs>
+                <circle cx="20%" cy="30%" fill="url(#grad1)" r="150"></circle>
+                <circle cx="80%" cy="70%" fill="url(#grad1)" r="200"></circle>
+                <path d="M0 100 Q 250 50 500 150 T 1000 100" fill="none" stroke="#0da6f2" stroke-width="0.5"></path>
+                <path d="M0 300 Q 300 400 600 200 T 1200 350" fill="none" stroke="#6b21a8" stroke-width="0.5"></path>
+            </svg>
+        </div>
+        <div class="relative z-10 max-w-7xl px-6 text-center pt-20 hero-content">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/30 mb-8">
+                <span class="relative flex h-3 w-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary">En vivo en la Isla de Margarita ·
+                    Mar
+                    2026</span>
+            </div>
+            <!-- <h1 class="text-6xl md:text-9xl font-black leading-none mb-6 tracking-tighter">
+                EL FUTURO DE <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-purple">LA ECONOMIA
+                    DIGITAL</span>
+                SE CITA EN LA <br />
+                PERLA DEL CARIBE
+            </h1> --> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p class="text-lg md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+                ¿Estás listo para conectar con los líderes que están transformando el ecosistema financiero? La Cumbre
+                Crypto Global 2026 no es solo un evento, es el punto de encuentro definitivo para la innovación y los
+                negocios.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a class="w-full sm:w-auto min-w-[240px] h-16 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform glow-cyan text-lg"
+                    href="#registration">
+                    <span class="material-symbols-outlined">confirmation_number</span>
+                    REGÍSTRATE
+                </a>
+                <button
+                    class="w-full sm:w-auto min-w-[240px] h-16 glass-card text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-white/10 transition-colors text-lg border-white/20">
+                    <span class="material-symbols-outlined">play_circle</span>
+                    MÁS INFORMACIÓN
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+        </div>
+    </section>
+    <section class="relative py-32 bg-background-dark" id="registration">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">Asegura tu lugar</h2>
+                    <h3 class="text-4xl md:text-6xl font-black mb-8 leading-tight">No te quedes fuera del evento <span
+                            class="text-primary">CRYPTO</span> del año.</h3>
+                    <span <p class="text-white/60 text-lg mb-10 leading-relaxed max-w-xl">
+                        El paquete incluye acceso a los 3 dias del evento, con alojamiento todo incluido en el Hotel
+                        Sunsol Unik, traslado desde el aeropuerto ida y vuelta,
+                        todas las comidas y Bebidas alcohólicas y no alcohólicas nacionales ilimitadas .
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span class="material-symbols-outlined">verified_user</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Check-in prioritario</h4>
+                                    <p class="text-white/40 text-sm">Recibe tu voucher digital de forma inmediata al
+                                        registrarte y adquirir tu entrada; incluye check-in prioritario, acceso VIP a la
+                                        conferencia y coordinación del traslado desde el aeropuerto.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-accent-purple/10 flex items-center justify-center text-accent-purple shrink-0">
+                                    <span class="material-symbols-outlined">ac_unit</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Paquete too incluido en Margarita</h4>
+                                    <p class="text-white/40 text-sm">Incluye 3 noches en Hotel Sunsol Unik, traslados
+                                        aeropuerto ida y vuelta, comidas y bebidas nacionales ilimitadas durante el
+                                        evento.</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-primary to-accent-purple rounded-3xl blur opacity-20">
+                    </div>
+                    <div class="relative glass-card p-10 rounded-3xl border-white/10">
+                        <form id="registration-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-xs uppercase tracking-widest text-white/50 font-bold ml-1">Nombre</label>
+                                    <input id="firstName" name="firstName"
+                                        class="w-full bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white placeholder:text-white/20"
+                                        placeholder="Nombre" type="text" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-xs uppercase tracking-widest text-white/50 font-bold ml-1">Apellido</label>
+                                    <input id="lastName" name="lastName"
+                                        class="w-full bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white placeholder:text-white/20"
+                                        placeholder="Apellido" type="text" />
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-white/50 font-bold ml-1">Correo
+                                    electrónico</label>
+                                <input id="email" name="email"
+                                    class="w-full bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white placeholder:text-white/20"
+                                    placeholder="correo@ejemplo.com" type="email" />
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs uppercase tracking-widest text-white/50 font-bold ml-1">Teléfono</label>
+                                <input id="phone" name="phone"
+                                    class="w-full bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white placeholder:text-white/20"
+                                    placeholder="+58 412-0000000" type="tel" />
+                            </div>
+                            <div class="pt-4">
+                                <button id="submitRegistration"
+                                    class="w-full h-16 bg-gradient-to-r from-primary to-accent-purple text-white font-bold rounded-xl hover:scale-[1.02] transition-all glow-cyan shadow-lg shadow-primary/20 flex items-center justify-center gap-3"
+                                    type="submit">
+                                    FINALIZAR REGISTRO
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                                <p class="text-[10px] text-center text-white/30 mt-6 uppercase tracking-widest">Registro
+                                    cifrado 256-bit</p>
+                                <div id="ticket-result" class="hidden mt-6 p-4 bg-white/5 rounded-lg text-sm"></div>
+                                <p id="registration-note" class="text-xs text-white/40 mt-3">Al enviar, tus datos se
+                                    guardarán en una hoja de Google Sheets para gestión de registros y contacto. (Se
+                                    enviará también un correo de confirmación local si tu cliente de correo está
+                                    configurado).</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="relative z-20 px-6 py-12 bg-background-dark">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4 p-8 glass-card rounded-3xl border-white/5">
+                <div class="text-center">
+                    <p class="text-primary text-3xl font-bold">1500+</p>
+                    <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Asistentes</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-primary text-3xl font-bold">40+</p>
+                    <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Ponentes</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-primary text-3xl font-bold">25+</p>
+                    <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Sesiones</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-primary text-3xl font-bold">30+</p>
+                    <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Países</p>
+                </div>
+            </div>
+            <div class="p-8 glass-card rounded-3xl border-white/5 flex items-center justify-between">
+                <div class="text-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-white/5 rounded-lg mb-2">
+                        <span id="countdown-days" class="text-xl font-bold text-primary">00</span>
+                    </div>
+                    <span class="text-[10px] uppercase text-white/40 tracking-widest">Días</span>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-white/5 rounded-lg mb-2">
+                        <span id="countdown-hours" class="text-xl font-bold text-primary">00</span>
+                    </div>
+                    <span class="text-[10px] uppercase text-white/40 tracking-widest">Horas</span>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-white/5 rounded-lg mb-2">
+                        <span id="countdown-minutes" class="text-xl font-bold text-primary">00</span>
+                    </div>
+                    <span class="text-[10px] uppercase text-white/40 tracking-widest">Min</span>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-white/5 rounded-lg mb-2">
+                        <span id="countdown-seconds" class="text-xl font-bold text-primary">00</span>
+                    </div>
+                    <span class="text-[10px] uppercase text-white/40 tracking-widest">Seg</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 overflow-hidden bg-background-dark" id="speakers">
+        <div class="max-w-7xl mx-auto px-6 mb-12 flex items-end justify-between">
+            <div>
+                <h2 class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">Visionarios Elite</h2>
+                <h3 class="text-4xl md:text-5xl font-black">NUESTROS PONENTES</h3>
+            </div>
+            <div class="flex gap-4">
+                <button id="speakers-prev" type="button"
+                    class="p-3 rounded-full glass-card hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button id="speakers-next" type="button"
+                    class="p-3 rounded-full glass-card hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+        <div id="speakers-list" class="flex gap-8 px-6 overflow-x-auto hide-scrollbar pb-10">
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card neon-border transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Doc. Erick Beni.png')"
+                        data-alt="Doc. Erick Beni"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Doc. Erick Beni</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Dr. Benito Hamidian.png')"
+                        data-alt="Dr. Benito Hamidian"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Dr. Benito Hamidian</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Dr. Felix BalzaRubio.png')"
+                        data-alt="Dr. Felix BalzaRubio"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Dr. Felix BalzaRubio</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Dra. Elba Boada.png')"
+                        data-alt="Dra. Elba Boada"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Dra. Elba Boada</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Eco. Aaron Olmos.png')"
+                        data-alt="Eco. Aaron Olmos"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Eco. Aaron Olmos</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Histtoria Tim Stern.png')"
+                        data-alt="Tim Stern"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Tim Stern</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Ing. Ivan Bohorquez.png')"
+                        data-alt="Ing. Ivan Bohorquez"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Ing. Ivan Bohorquez</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Ing.\ Rafael\ Nuñez.png')"
+                        data-alt="Ing. Rafael Núñez"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Ing. Rafael Núñez</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lado Leoner Barreto.png')"
+                        data-alt="Leoner Barreto"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lado Leoner Barreto</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Carolina Valera.png')"
+                        data-alt="Carolina Valera"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Carolina Valera</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Eleazar Colmenares.png')"
+                        data-alt="Eleazar Colmenares"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Eleazar Colmenares</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Fabiola Balza.png')"
+                        data-alt="Fabiola Balza"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Fabiola Balza</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Jan Dominguez.png')"
+                        data-alt="Jan Dominguez"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Jan Dominguez</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Jhon Montesinos.png')"
+                        data-alt="Jhon Montesinos"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Jhon Montesinos</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic. Jose Orlando Trejo Abreu 1.png')"
+                        data-alt="Jose Orlando Trejo Abreu"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Jose Orlando Trejo Abreu</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Lic.png')" data-alt="Lic."></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Lic. Richard Ujueta</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none w-80 group">
+                <div
+                    class="relative h-[450px] rounded-3xl overflow-hidden glass-card transition-all duration-500 group-hover:-translate-y-4">
+                    <div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                        style="background-image: url('assets/img/speakers/Tim.png')" data-alt="Tim"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <p class="text-primary font-bold text-xs uppercase tracking-widest mb-2">Ponente</p>
+                        <h4 class="text-2xl font-bold">Tim Stern</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-white/5" id="agenda">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4 text-center">Programa</h2>
+            <h3 class="text-4xl font-black mb-8 text-center">AGENDA PRINCIPAL</h3>
+
+            <div class="flex items-center justify-center gap-3 mb-8">
+                <button data-day="jueves" class="day-btn px-4 py-2 rounded-lg glass-card text-sm font-bold text-white/90">JUEVES</button>
+                <button data-day="viernes" class="day-btn px-4 py-2 rounded-lg glass-card text-sm font-bold text-white/90">VIERNES</button>
+                <button data-day="sabado" class="day-btn px-4 py-2 rounded-lg glass-card text-sm font-bold text-white/90">SÁBADO</button>
+            </div>
+
+            <div id="agenda-list" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </div>
+    </section>
+    <section class="py-32 bg-background-dark" id="venue">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">La ubicación</h2>
+                <h3 class="text-4xl md:text-5xl font-black mb-6 leading-tight">LA PERLA DEL CARIBE</h3>
+                <p class="text-white/60 text-lg mb-8 leading-relaxed">
+                    Situado en el corazón de la exclusiva zona de Costa Azul, el Sunsol Unik se erige como una joya de
+                    arquitectura vanguardista y minimalista. Un santuario de 5 estrellas diseñado para el viajero de
+                    élite, donde la elegancia se encuentra con la innovación.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-4 text-white/80">
+                        <span class="material-symbols-outlined text-primary">verified</span>
+                        Hotel 5 estrellas.
+                    </li>
+                    <li class="flex items-center gap-4 text-white/80">
+                        <span class="material-symbols-outlined text-primary">verified</span>
+                        Piscina infinita con jacuzzi.
+                    </li>
+                    <li class="flex items-center gap-4 text-white/80">
+                        <span class="material-symbols-outlined text-primary">verified</span>
+                        Ofrece 176 modernas habitaciones (dobles y suites).
+                    </li>
+                </ul>
+                <button
+                    class="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-10 rounded-xl transition-all glow-cyan uppercase tracking-tighter">
+                    Explorar el lugar
+                </button>
+            </div>
+            <div class="relative h-[500px] rounded-3xl overflow-hidden glass-card neon-border map-dark">
+                <iframe class="absolute inset-0 w-full h-full border-0"
+                    src="https://www.google.com/maps?q=10.9886665,-63.8221792&t=k&z=15&output=embed" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="absolute top-4 left-4">
+                    <a class="glass-card px-3 py-2 rounded-lg bg-white/5 text-white/90 hover:bg-primary transition-colors"
+                        href="https://www.google.com/maps?q=10.9886665,-63.8221792&t=k&z=15" target="_blank"
+                        rel="noopener">Abrir en Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-background-dark border-t border-white/5 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                        <h1 class="text-lg font-bold tracking-tight">CUMBRE CRIPTO</h1>
+                    </div>
+                    <p class="text-white/40 text-sm leading-relaxed mb-6">
+                        Cerrando la brecha entre las finanzas tradicionales y el futuro descentralizado en un paraíso
+                        tropical.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-xl">share</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:text-primary transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-xl">group</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-primary">Enlaces</h5>
+                    <ul class="space-y-4 text-sm text-white/60">
+                        <li><a class="hover:text-white transition-colors" href="#">Recursos de medios</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Política de privacidad</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Términos de servicio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-primary">Evento</h5>
+                    <ul class="space-y-4 text-sm text-white/60">
+                        <li><a class="hover:text-white transition-colors" href="#">Patrocinios</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">FAQ de entradas</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Voluntariado</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Alojamiento</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-primary">Boletín</h5>
+                    <p class="text-xs text-white/40 mb-4">Recibe las últimas novedades del evento y acceso Early Bird.
+                    </p>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-white/5 border-white/10 rounded-lg px-4 py-2 text-sm flex-1 focus:ring-primary focus:border-primary"
+                            placeholder="Tu correo" type="email" />
+                        <button class="bg-primary p-2 rounded-lg text-white">
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-[10px] uppercase tracking-widest">© 2026 Cumbre Cripto Global & NS. Todos los
+                    derechos reservados.</p>
+                <div class="flex items-center gap-6">
+                    <img alt="Sponsor logo" class="opacity-30 hover:opacity-100 transition-opacity grayscale invert"
+                        data-alt="Corporate sponsor logo light gray"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4QaLV3ASh53P8FqfrQDoYjs6IjFE_TGDz9YgXnNZuNZhARwMMCubxOew3QKU9ZVmzNcm_QU2fFheRgWXJMA0m8At6ABzlOKTtWdPEA_GFzUaBcmQox664YoWkyRg6cFTMLpk1GJmC7YeZw7ACvEi2w8KtRXtP3Z22NCiIefV2o7huILriRkh6z9xrWIgHbHPIMfkOrBQh20LIlcNcDeR1I_Mv_H6TUMI_saHlmTsa5LoD0O9QULysQqlYLAb0wweqbiVRN8Wz8uCO" />
+                    <img alt="Sponsor logo" class="opacity-30 hover:opacity-100 transition-opacity grayscale invert"
+                        data-alt="Technology partner logo light gray"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2qyHgxXfqFY1CamYlROMG8PSMVxu5z4xFc_zE8af_aQ7PwntfcSy5nT0UCPiil-m8V67eJEtTFJHw2R63gfn-HvNz5lhv_I0tqup9_WlPVrQx-5oXalOlMV80g9hQzEvdAK1jQt86NUo6hZtgYPuCjRU299kzqjnq3nHxzG1dsemNmdEMx6Ynz8fQtP84eZpEWJqd_ylCqBzG3vIi6EQjDGemRf71rzjsq1VjWthfsP5AkiMI9tDfWGvj4FDjGNLDUb-XD5mxvymM" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/agenda.js"></script>
+</body>
+
+</html>
