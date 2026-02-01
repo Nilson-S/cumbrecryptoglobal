@@ -97,6 +97,9 @@
                 <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest"
                     href="#registration">Registro</a>
             </nav>
+            <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg glass-card"> 
+                <span class="material-symbols-outlined">menu</span>
+            </button>
             <div class="flex items-center gap-4">
                 <a class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all glow-cyan uppercase tracking-tighter"
                     href="#registration">
@@ -105,6 +108,21 @@
             </div>
         </div>
     </header>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 bg-background-dark/95 backdrop-blur-md p-6 z-50">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg">Menú</h3>
+            <button id="mobile-menu-close" class="p-2 rounded-lg glass-card">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-3">
+            <a href="#agenda" class="py-2 px-3 rounded-lg hover:bg-white/5">Agenda</a>
+            <a href="#speakers" class="py-2 px-3 rounded-lg hover:bg-white/5">Ponentes</a>
+            <a href="#venue" class="py-2 px-3 rounded-lg hover:bg-white/5">Lugar</a>
+            <a href="#registration" class="py-2 px-3 rounded-lg hover:bg-white/5">Registro</a>
+        </nav>
+    </div>
     <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-background-dark/60 to-background-dark">
@@ -692,6 +710,7 @@
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/agenda.js"></script>
+    <script src="assets/js/responsive.js"></script>
 </body>
 
 </html>
