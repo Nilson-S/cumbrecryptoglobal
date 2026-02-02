@@ -127,8 +127,7 @@
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-background-dark/60 to-background-dark">
             </div>
-            <div class="absolute inset-0 bg-[url('assets/img/logos/banner1.jpg')] bg-cover bg-center hero-bg"
-                data-alt="Banner Cumbre Crypto"></div>
+            <div id="hero-carousel" class="absolute inset-0 hero-bg bg-cover bg-center transition-all duration-700" data-alt="Banner Cumbre Crypto"></div>
             <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" id="grad1" r="50%">
@@ -150,7 +149,7 @@
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                 </span>
                 <span class="text-xs font-bold uppercase tracking-widest text-primary">En vivo en la Isla de Margarita ·
-                    Mar
+                    26 Mar
                     2026</span>
             </div>
             <!-- <h1 class="text-6xl md:text-9xl font-black leading-none mb-6 tracking-tighter">
@@ -163,7 +162,7 @@
             <p class="text-lg md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
                 ¿Estás listo para conectar con los líderes que están transformando el ecosistema financiero? La Cumbre
                 Crypto Global 2026 no es solo un evento, es el punto de encuentro definitivo para la innovación y los
-                negocios.
+                negocios desde el 26 al 28 de marzo de 2026 en la Isla de Margarita, en las instalaciones del hotel Sunsol Unik.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
                 <a class="w-full sm:w-auto min-w-[240px] h-16 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform glow-cyan text-lg"
@@ -171,11 +170,31 @@
                     <span class="material-symbols-outlined">confirmation_number</span>
                     REGÍSTRATE
                 </a>
-                <button
+                <a
+                    href="https://wa.me/584127210524?text=Hola%2C%20quiero%20más%20información%20sobre%20la%20Cumbre%20Crypto%20Global%202026"
+                    target="_blank"
                     class="w-full sm:w-auto min-w-[240px] h-16 glass-card text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-white/10 transition-colors text-lg border-white/20">
-                    <span class="material-symbols-outlined">play_circle</span>
-                    MÁS INFORMACIÓN
-                </button>
+                    <span class="material-symbols-outlined">chat</span>
+                    CONTÁCTANOS
+                </a>
+            </div>
+                <!-- Botones flotantes: WhatsApp e Instagram -->
+                <div class="fixed z-50 bottom-6 right-6 flex flex-col items-end gap-3">
+                    <a href="https://wa.me/584127210524?text=Hola%2C%20quiero%20más%20información%20sobre%20la%20Cumbre%20Crypto%20Global%202026" target="_blank" aria-label="Contactar por WhatsApp"
+                        class="bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center w-16 h-16 transition-all group">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-8 h-8">
+                            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.832 4.584 2.236 6.393L4 29l7.828-2.05C13.416 27.632 14.687 28 16 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.13 0-2.238-.188-3.287-.558l-.235-.08-4.65 1.217 1.24-4.527-.153-.236C7.188 18.238 7 17.13 7 16c0-5.065 4.135-9.2 9.2-9.2S25.4 10.935 25.4 16c0 5.065-4.135 9.2-9.2 9.2zm5.13-6.13c-.28-.14-1.65-.815-1.905-.91-.255-.095-.44-.14-.625.14-.185.28-.715.91-.88 1.095-.165.185-.325.21-.605.07-.28-.14-1.18-.435-2.25-1.385-.83-.74-1.39-1.65-1.55-1.93-.165-.28-.018-.43.123-.57.127-.126.28-.325.42-.49.14-.165.186-.28.28-.465.093-.186.047-.35-.023-.49-.07-.14-.625-1.51-.86-2.07-.227-.545-.46-.47-.625-.48-.16-.01-.35-.012-.54-.012-.19 0-.5.07-.765.35-.265.28-1.01.99-1.01 2.42 0 1.43 1.035 2.81 1.18 3.01.14.19 2.04 3.12 5.01 4.25.7.24 1.25.38 1.68.485.705.18 1.345.155 1.85.095.565-.065 1.65-.675 1.885-1.33.235-.655.235-1.215.165-1.33-.07-.115-.255-.185-.535-.325z"/>
+                        </svg>
+                        <span class="absolute opacity-0 group-hover:opacity-100 bg-black text-white text-xs rounded px-2 py-1 bottom-20 right-0 transition-opacity pointer-events-none">WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/cumbrecriptoglobal/" target="_blank" aria-label="Instagram Cumbre Crypto Global"
+                        class="bg-gradient-to-tr from-pink-500 via-yellow-400 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full shadow-lg flex items-center justify-center w-16 h-16 transition-all group">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-8 h-8">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.1S388.6 7.6 353.3 5.9C317.5 4.2 130.5 4.2 94.7 5.9 59.4 7.6 28 15.8 2.7 41.1S7.6 59.4 5.9 94.7C4.2 130.5 4.2 317.5 5.9 353.3c1.7 35.3 9.9 66.7 36.2 92.1s56.8 34.5 92.1 36.2c35.8 1.7 222.8 1.7 258.6 0 35.3-1.7 66.7-9.9 92.1-36.2s34.5-56.8 36.2-92.1c1.7-35.8 1.7-222.8 0-258.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C121.2 9 191 11.6 224.1 11.6s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.6 102.9-9 132.3z"/>
+                        </svg>
+                        <span class="absolute opacity-0 group-hover:opacity-100 bg-black text-white text-xs rounded px-2 py-1 bottom-20 right-0 transition-opacity pointer-events-none">Instagram</span>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
@@ -695,18 +714,15 @@
             <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-white/30 text-[10px] uppercase tracking-widest">© 2026 Cumbre Cripto Global & NS. Todos los
                     derechos reservados.</p>
-                <div class="flex items-center gap-6">
-                    <img alt="Sponsor logo" class="opacity-30 hover:opacity-100 transition-opacity grayscale invert"
-                        data-alt="Corporate sponsor logo light gray"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4QaLV3ASh53P8FqfrQDoYjs6IjFE_TGDz9YgXnNZuNZhARwMMCubxOew3QKU9ZVmzNcm_QU2fFheRgWXJMA0m8At6ABzlOKTtWdPEA_GFzUaBcmQox664YoWkyRg6cFTMLpk1GJmC7YeZw7ACvEi2w8KtRXtP3Z22NCiIefV2o7huILriRkh6z9xrWIgHbHPIMfkOrBQh20LIlcNcDeR1I_Mv_H6TUMI_saHlmTsa5LoD0O9QULysQqlYLAb0wweqbiVRN8Wz8uCO" />
-                    <img alt="Sponsor logo" class="opacity-30 hover:opacity-100 transition-opacity grayscale invert"
-                        data-alt="Technology partner logo light gray"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2qyHgxXfqFY1CamYlROMG8PSMVxu5z4xFc_zE8af_aQ7PwntfcSy5nT0UCPiil-m8V67eJEtTFJHw2R63gfn-HvNz5lhv_I0tqup9_WlPVrQx-5oXalOlMV80g9hQzEvdAK1jQt86NUo6hZtgYPuCjRU299kzqjnq3nHxzG1dsemNmdEMx6Ynz8fQtP84eZpEWJqd_ylCqBzG3vIi6EQjDGemRf71rzjsq1VjWthfsP5AkiMI9tDfWGvj4FDjGNLDUb-XD5mxvymM" />
+                <div id="sponsor-carousel" class="flex items-center gap-6 min-h-[48px]">
+                    <img id="sponsor-img" alt="Sponsor logo" class="opacity-30 hover:opacity-100 transition-opacity grayscale invert" data-alt="Sponsor logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4QaLV3ASh53P8FqfrQDoYjs6IjFE_TGDz9YgXnNZuNZhARwMMCubxOew3QKU9ZVmzNcm_QU2fFheRgWXJMA0m8At6ABzlOKTtWdPEA_GFzUaBcmQox664YoWkyRg6cFTMLpk1GJmC7YeZw7ACvEi2w8KtRXtP3Z22NCiIefV2o7huILriRkh6z9xrWIgHbHPIMfkOrBQh20LIlcNcDeR1I_Mv_H6TUMI_saHlmTsa5LoD0O9QULysQqlYLAb0wweqbiVRN8Wz8uCO" />
                 </div>
+            </div>
             </div>
         </div>
     </footer>
 
+    <script src="assets/js/carousel.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/agenda.js"></script>
