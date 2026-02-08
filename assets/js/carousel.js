@@ -2,7 +2,7 @@
 (function() {
     const images = [
         'assets/img/logos/banner.jpg',
-        'assets/img/logos/banner1.jpg',
+
     ];
     let idx = 0;
     const el = document.getElementById('hero-carousel');
