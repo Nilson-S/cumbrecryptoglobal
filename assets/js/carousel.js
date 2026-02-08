@@ -1,7 +1,7 @@
 // Carrusel de imágenes para el banner principal
 (function() {
     const images = [
-        'assets/img/logos/banner.jpg',
+        'assets/img/logos/banner1.jpg',
 
     ];
     let idx = 0;
